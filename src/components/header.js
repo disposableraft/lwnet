@@ -1,27 +1,24 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { scale, rhythm } from "../utils/typography"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
+  <header >
     <div
       style={{
-        margin: `0 auto`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        paddingTop: rhythm(1),
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <h1 style={{ ...scale(1.625) }}>
         <Link
           to="/"
           style={{
-            color: `white`,
             textDecoration: `none`,
+            background: `-webkit-linear-gradient(#eee, ghostwhite)`,
+            WebkitBackgroundClip: `text`,
+            WebkitTextFillColor: `transparent`
           }}
         >
           {siteTitle}
