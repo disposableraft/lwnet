@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Navigation from "./navigation"
 import "./layout.css"
 import { rhythm } from "../utils/typography"
 
@@ -40,7 +41,7 @@ const Layout = ({ children }) => {
             }}
           >
             <Header siteTitle={data.site.siteMetadata.title} />
-            © {new Date().getFullYear()} Lance Wakeling — <a href="https://instagram.com/disposableraft">Instagram</a> — <a href="https://github.com/disposableraft">Github</a>
+            <Navigation />
           </div>
         </footer>
       </div>
