@@ -1,9 +1,9 @@
 ---
-title: "Resume"
+title: "Resume / CV"
 date: "2020"
 ---
 
-Hi, I'm Lance Wakeling. I write, surf, backpack, photograph plants and make websites.
+Hi, I'm Lance Wakeling. I photograph plants, backpack, surf, meditate and make this website.
 
 <hr />
 
