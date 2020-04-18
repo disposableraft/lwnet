@@ -5,11 +5,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
-    const dateSlug = `${node.frontmatter.date}-${slug.split("/")[1]}`
+    const date = node.frontmatter.date
     createNodeField({
       node,
       name: `slug`,
-      value: dateSlug,
+      value: formatDateSlug(date, slug),
     })
   }
 }
@@ -40,4 +40,15 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+}
+
+/**
+ * Format a slug `{date}-{slug}`
+ * @param {String} date
+ * @param {String} slug
+ * @returns string with a leading slug and words separated by dashes
+ */
+function formatDateSlug(date, slug) {
+  const newSlug = slug.split("/").filter(e => e)
+  return [date].concat(newSlug).join("-")
 }
