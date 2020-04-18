@@ -26,7 +26,7 @@ class ExpandableImage extends React.Component {
         {this.state.expanded ? (
           <Img fluid={this.props.fullsize} />
         ) : (
-          <Img fluid={this.props.banner} />
+          <Img style={{cursor:'pointer'}} fluid={this.props.banner} />
         )}
       </div>
     )
