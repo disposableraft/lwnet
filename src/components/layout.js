@@ -20,11 +20,12 @@ const Layout = ({ children }) => {
 
   return (
     <div
+      className="container"
       style={{
           maxWidth: 960,
-          paddingRight: rhythm(2),
+          paddingRight: rhythm(1),
           paddingBottom: rhythm(2),
-          paddingLeft: rhythm(2),
+          paddingLeft: rhythm(1),
           paddingTop: rhythm(1),
           margin: `${rhythm(0)} auto`,
         }}
