@@ -14,7 +14,6 @@ export default ({ data }) => {
         <div
           style={{
             width: `100%`,
-            paddingRight: rhythm(1),
             paddingBottom: rhythm(1),
           }}
         >
