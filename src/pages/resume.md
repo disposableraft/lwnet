@@ -57,7 +57,7 @@ The Greater Cloud, NIMK, Amsterdam, 2011
 
 ### Publications
 
-_Private Circulation_: A monthly PDF bulletin I published and distributed via e-mail. Issues featured proposals, unrealized art projects, brief histories, photo collections, large posters and essays. 2008–2010.
+[_Private Circulation_](/private-circulation): A monthly PDF bulletin I published and distributed via e-mail. Issues featured proposals, unrealized art projects, brief histories, photo collections, large posters and essays. 2008–2010.
 
 <hr />
 
