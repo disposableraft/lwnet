@@ -1,9 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { Box, Flex } from "@chakra-ui/core"
 
 import Header from "./header"
-import Navigation from "./navigation"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -17,17 +18,20 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div className="container">
-      <div>
-        <main>{children}</main>
-        <footer>
-          <div>
-            <Header siteTitle={data.site.siteMetadata.title} />
-            <Navigation />
-          </div>
-        </footer>
-      </div>
-    </div>
+    <Box>
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <Flex justifyContent="center">
+        <Box
+          mt={["6", "8", "10", "12"]}
+          mx={["6", "8", "10"]}
+          width={"480px"}
+          lineHeight="tall"
+        >
+          {children}
+        </Box>
+      </Flex>
+      <Footer />
+    </Box>
   )
 }
 

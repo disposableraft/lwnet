@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Box, Heading } from "@chakra-ui/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -8,10 +9,12 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
-      <div>
-        <h1>{post.frontmatter.title}</h1>
+      <Box>
+        <Heading as="h2" pb="8">
+          {post.frontmatter.title}
+        </Heading>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      </Box>
     </Layout>
   )
 }
