@@ -4,8 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Navigation from "./navigation"
-import "./layout.css"
-import { rhythm } from "../utils/typography"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -19,28 +17,11 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div
-      className="container"
-      style={{
-          maxWidth: 960,
-          paddingRight: rhythm(1),
-          paddingBottom: rhythm(2),
-          paddingLeft: rhythm(1),
-          paddingTop: rhythm(1),
-          margin: `${rhythm(0)} auto`,
-        }}
-      >
+    <div className="container">
       <div>
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <footer>
-          <div 
-            style={{ 
-              color: `#ccc`,
-              textAlign: `center`,
-            }}
-          >
+          <div>
             <Header siteTitle={data.site.siteMetadata.title} />
             <Navigation />
           </div>

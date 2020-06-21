@@ -4,19 +4,13 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ExpandableImage from "../components/expandable-image"
-import { rhythm } from "../utils/typography"
 
 export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
       <div style={{ display: `flex`, flexWrap: `wrap` }}>
-        <div
-          style={{
-            width: `100%`,
-            paddingBottom: rhythm(1),
-          }}
-        >
+        <div>
           {data.allImageSharp.nodes.map(node => {
             return (
               <ExpandableImage

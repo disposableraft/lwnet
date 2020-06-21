@@ -1,6 +1,5 @@
 import React from "react"
 import Img from "gatsby-image"
-import { rhythm } from "../utils/typography"
 
 class ExpandableImage extends React.Component {
   constructor(props) {
@@ -55,7 +54,6 @@ class ExpandableImage extends React.Component {
               left: "50%",
               color: "ghostwhite",
               textShadow: "0.05em 0.05em 0.25em black",
-              fontSize: rhythm(1),
               textAlign: "center",
               verticalAlign: "middle",
             }}

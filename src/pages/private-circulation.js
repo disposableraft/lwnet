@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Text, Heading, Stack, Box, Link, Icon } from "@chakra-ui/core"
-// NOTE: So, this approach taught me about sourceInstanceName, but it's not that useful as is. That's because I'd like each issue to have: a title, a link and a description. Since there are only a handful of issues, and there won't be more in the future, it's more efficient to just use static assets.
 
 export default ({ data }) => {
   const issues = data.allFile.nodes.map(issue => {

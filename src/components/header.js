@@ -1,32 +1,69 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { scale, rhythm } from "../utils/typography"
+import { Box, Heading, Flex, Text, Button } from "@chakra-ui/core"
 
-const Header = ({ siteTitle }) => (
-  <header >
-    <div
-      style={{
-        maxWidth: 960,
-        paddingTop: rhythm(1),
-      }}
-    >
-      <h1 style={{ ...scale(1.625) }}>
-        <Link
-          to="/"
-          style={{
-            textDecoration: `none`,
-            background: `-webkit-linear-gradient(#eee, ghostwhite)`,
-            WebkitBackgroundClip: `text`,
-            WebkitTextFillColor: `transparent`
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+const MenuItems = ({ children }) => (
+  <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
+    {children}
+  </Text>
 )
+
+const Header = props => {
+  const [show, setShow] = React.useState(false)
+  const handleToggle = () => setShow(!show)
+
+  return (
+    <Flex
+      as="nav"
+      align="center"
+      justify="space-between"
+      wrap="wrap"
+      padding="1.5rem"
+      bg="pink.500"
+      color="white"
+      {...props}
+    >
+      <Flex align="center" mr={5}>
+        <Heading as="h1" size="lg">
+          <Link to="/">{props.siteTitle}</Link>
+        </Heading>
+      </Flex>
+
+      <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
+        <svg
+          fill="white"
+          width="12px"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </Box>
+
+      <Box
+        display={{ base: show ? "block" : "none", md: "flex" }}
+        width={{ base: "100%", md: "auto" }}
+        alignItems="center"
+        flexGrow={1}
+      >
+        <MenuItems>About</MenuItems>
+        <MenuItems>Photos</MenuItems>
+        <MenuItems>Blog</MenuItems>
+      </Box>
+
+      <Box
+        display={{ base: show ? "block" : "none", md: "block" }}
+        mt={{ base: 4, md: 0 }}
+      >
+        <Button bg="transparent" border="1px">
+          Create account
+        </Button>
+      </Box>
+    </Flex>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
