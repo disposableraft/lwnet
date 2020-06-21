@@ -43,6 +43,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-chakra-ui`,
+    {
+      resolve: `gatsby-plugin-chakra-ui`,
+      options: {
+        isUsingColorMode: false,
+      },
+    },
   ],
 }
