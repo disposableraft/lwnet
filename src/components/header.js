@@ -48,7 +48,9 @@ const Header = props => {
         alignItems="center"
         flexGrow={1}
       >
-        <MenuItems>About</MenuItems>
+        <MenuItems>
+          <Link to="/about">About</Link>
+        </MenuItems>
         <MenuItems>Photos</MenuItems>
         <MenuItems>Blog</MenuItems>
       </Box>
