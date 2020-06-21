@@ -4,7 +4,7 @@ import React from "react"
 import { Box, Heading, Flex, Text, Button } from "@chakra-ui/core"
 
 const MenuItems = ({ children }) => (
-  <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
+  <Text mt={4} mr={6} display="block">
     {children}
   </Text>
 )
@@ -20,8 +20,9 @@ const Header = props => {
       justify="space-between"
       wrap="wrap"
       padding="1.5rem"
-      bg="pink.500"
-      color="white"
+      bg="white"
+      color="black"
+      borderBottom="1px"
       {...props}
     >
       <Flex align="center" mr={5}>
@@ -30,10 +31,10 @@ const Header = props => {
         </Heading>
       </Flex>
 
-      <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
+      <Box display="block" onClick={handleToggle}>
         <svg
-          fill="white"
-          width="12px"
+          fill="black"
+          width="16px"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -43,25 +44,15 @@ const Header = props => {
       </Box>
 
       <Box
-        display={{ base: show ? "block" : "none", md: "flex" }}
-        width={{ base: "100%", md: "auto" }}
+        display={{ base: show ? "block" : "none" }}
+        width="100%"
         alignItems="center"
-        flexGrow={1}
       >
         <MenuItems>
           <Link to="/about">About</Link>
         </MenuItems>
         <MenuItems>Photos</MenuItems>
         <MenuItems>Blog</MenuItems>
-      </Box>
-
-      <Box
-        display={{ base: show ? "block" : "none", md: "block" }}
-        mt={{ base: 4, md: 0 }}
-      >
-        <Button bg="transparent" border="1px">
-          Create account
-        </Button>
       </Box>
     </Flex>
   )
