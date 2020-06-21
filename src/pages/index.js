@@ -1,27 +1,25 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Box, Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ExpandableImage from "../components/expandable-image"
 
 export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <div style={{ display: `flex`, flexWrap: `wrap` }}>
-        <div>
-          {data.allImageSharp.nodes.map(node => {
-            return (
-              <ExpandableImage
-                key={node.id}
-                banner={node.banner}
-                fullsize={node.fullsize}
-              />
-            )
-          })}
-        </div>
-      </div>
+      <Box>
+        <Heading>IMAGESIMAGESIMAGES</Heading>
+        <Heading>IMAGESIMAGES</Heading>
+        <Heading>IMAGES</Heading>
+        <Heading>PAGESPAGESPAGES</Heading>
+        <Heading>PAGESPAGES</Heading>
+        <Heading>PAGES</Heading>
+        <Heading>BLOGBLOGBLOG</Heading>
+        <Heading>BLOGBLOG</Heading>
+        <Heading>BLOG</Heading>
+      </Box>
     </Layout>
   )
 }
