@@ -31,7 +31,11 @@ const Header = props => {
         </Heading>
       </Flex>
 
-      <Box display="block" onClick={handleToggle}>
+      <Box
+        display={{ base: "block", md: "none" }}
+        onClick={handleToggle}
+        cursor="pointer"
+      >
         <svg
           fill="black"
           width="16px"
@@ -44,15 +48,16 @@ const Header = props => {
       </Box>
 
       <Box
-        display={{ base: show ? "block" : "none" }}
+        display={{ base: show ? "block" : "none", md: "flex" }}
         width="100%"
         alignItems="center"
       >
         <MenuItems>
           <Link to="/about">About</Link>
         </MenuItems>
-        <MenuItems>Photos</MenuItems>
-        <MenuItems>Blog</MenuItems>
+        <MenuItems>
+          <Link to="/photos">Photos</Link>
+        </MenuItems>
       </Box>
     </Flex>
   )
