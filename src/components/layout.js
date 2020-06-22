@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
         <Box
           mt={["6", "8", "10", "12"]}
           mx={["6", "8", "10"]}
-          width={"480px"}
+          width={["100%", "480px", "960px"]}
           lineHeight="tall"
         >
           {children}

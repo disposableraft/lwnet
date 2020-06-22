@@ -10,33 +10,13 @@ export default ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <Box>
-        <Heading>IMAGESIMAGESIMAGES</Heading>
-        <Heading>IMAGESIMAGES</Heading>
-        <Heading>IMAGES</Heading>
-        <Heading>PAGESPAGESPAGES</Heading>
-        <Heading>PAGESPAGES</Heading>
-        <Heading>PAGES</Heading>
-        <Heading>BLOGBLOGBLOG</Heading>
-        <Heading>BLOGBLOG</Heading>
-        <Heading>BLOG</Heading>
+        <Heading>> NO</Heading>
+        <Heading>> IDEAS</Heading>
+        <Heading>> BUT </Heading>
+        <Heading>
+          > IN THINGS<sup>1</sup>
+        </Heading>
       </Box>
     </Layout>
   )
 }
-
-export const query = graphql`
-  query {
-    allImageSharp(sort: { order: DESC, fields: fluid___originalName }) {
-      totalCount
-      nodes {
-        id
-        banner: fluid(maxWidth: 960, maxHeight: 120, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid
-        }
-        fullsize: fluid(maxWidth: 960) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
