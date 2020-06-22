@@ -17,7 +17,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/src/content/pages`,
       },
     },
     {
@@ -27,7 +27,7 @@ module.exports = {
         path: `${__dirname}/src/pdf/private-circulation`,
       },
     },
-    `gatsby-transformer-remark`,
+    `gatsby-plugin-mdx`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
