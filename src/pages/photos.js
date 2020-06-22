@@ -1,17 +1,14 @@
-import React, { Children } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Box, Grid, useDisclosure } from "@chakra-ui/core"
 import {
-  Button,
   Link,
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
-  ModalCloseButton,
 } from "@chakra-ui/core"
 
 import Layout from "../components/layout.js"

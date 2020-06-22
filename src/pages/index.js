@@ -1,5 +1,4 @@
 import React from "react"
-import { graphql } from "gatsby"
 import { Box, Heading } from "@chakra-ui/core"
 
 import Layout from "../components/layout"

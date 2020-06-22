@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { Box, Text } from "@chakra-ui/core"
 
 const Footer = () => {

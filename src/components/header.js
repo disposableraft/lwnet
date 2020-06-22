@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Box, Heading, Flex, Text, Button } from "@chakra-ui/core"
+import { Box, Heading, Flex, Text } from "@chakra-ui/core"
 
 const MenuItems = ({ children }) => (
   <Text mt={4} mr={6} display="block">
