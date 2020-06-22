@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Box, Grid, useDisclosure } from "@chakra-ui/core"
@@ -13,20 +13,24 @@ import {
 
 import Layout from "../components/layout.js"
 
-const calculateImgDims = (windowHeight, aspectRatio) => {
+const calculateImgWidth = (windowHeight, aspectRatio) => {
   let width = 0
   if (aspectRatio <= 1) {
-    width = windowHeight * aspectRatio
+    width = Math.floor(windowHeight * aspectRatio)
   }
-  return Math.floor(width)
+  return width === 0 ? "65%" : `${width}px`
 }
 
 const ImageModal = ({ thumbnail, fullsize }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  let imgWidth = useRef()
 
-  const imgWidth =
-    calculateImgDims(window.innerHeight, fullsize.props.fluid.aspectRatio) ||
-    "63%"
+  useEffect(() => {
+    const height = window.innerHeight
+    const aspectRatio = fullsize.props.fluid.aspectRatio
+    imgWidth.current = calculateImgWidth(height, aspectRatio)
+  })
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <>
@@ -34,7 +38,7 @@ const ImageModal = ({ thumbnail, fullsize }) => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size={["full", "full", imgWidth]}
+        size={["full", "full", imgWidth.current]}
       >
         <ModalOverlay backgroundColor={"gray.600"} />
         <ModalContent top={["-1.75rem"]}>
