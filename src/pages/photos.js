@@ -13,12 +13,17 @@ import {
 
 import Layout from "../components/layout.js"
 
-const calculateImgWidth = (windowHeight, aspectRatio) => {
-  let width = 0
-  if (aspectRatio <= 1) {
-    width = Math.floor(windowHeight * aspectRatio)
+const fitImageToWindow = (windowY, windowX, aspectRatio) => {
+  if (aspectRatio > 1) {
+    // Landscape
+    const fit = 0.87
+    const smallSide = windowY < windowX ? windowY : windowX
+    const fitWidthToWindow = fit * smallSide * aspectRatio
+    return Math.floor(fitWidthToWindow)
+  } else {
+    // Portrait or square
+    return Math.floor(windowY * aspectRatio)
   }
-  return width === 0 ? "65%" : `${width}px`
 }
 
 const ImageModal = ({ thumbnail, fullsize }) => {
@@ -26,9 +31,12 @@ const ImageModal = ({ thumbnail, fullsize }) => {
 
   useEffect(() => {
     const height = window.innerHeight
+    const width = window.innerWidth
     const aspectRatio = fullsize.props.fluid.aspectRatio
-    imgWidth.current = calculateImgWidth(height, aspectRatio)
+    imgWidth.current = fitImageToWindow(height, width, aspectRatio)
   })
+
+  console.log("image width: ", imgWidth.current)
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -38,7 +46,7 @@ const ImageModal = ({ thumbnail, fullsize }) => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size={["full", "full", imgWidth.current]}
+        size={["full", `${imgWidth.current}px`]}
       >
         <ModalOverlay backgroundColor={"gray.600"} />
         <ModalContent top={["-1.75rem"]}>
