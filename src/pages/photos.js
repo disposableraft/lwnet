@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Box, Grid, useDisclosure } from "@chakra-ui/core"
@@ -9,6 +9,7 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
+  Spinner,
 } from "@chakra-ui/core"
 
 import Layout from "../components/layout.js"
@@ -35,8 +36,6 @@ const ImageModal = ({ thumbnail, fullsize }) => {
     const aspectRatio = fullsize.props.fluid.aspectRatio
     imgWidth.current = fitImageToWindow(height, width, aspectRatio)
   })
-
-  console.log("image width: ", imgWidth.current)
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -65,12 +64,40 @@ const ImageModal = ({ thumbnail, fullsize }) => {
   )
 }
 
+const ImgWithSpinner = props => {
+  const [showSpinner, setShowSpinner] = useState(false)
+  const spinner = (
+    <Spinner
+      color="white"
+      zIndex={10000}
+      pos="absolute"
+      top="40%"
+      left="50%"
+      size="xl"
+      thickness="4px"
+      speed="0.65s"
+    />
+  )
+  return (
+    <Box>
+      {showSpinner ? spinner : ""}
+      <Img
+        onLoad={() => setShowSpinner(false)}
+        onStartLoad={() => setShowSpinner(true)}
+        {...props}
+      />
+    </Box>
+  )
+}
+
 const Photos = props => {
   const data = props.data
 
   const thumbnails = data.allImageSharp.nodes.map(node => {
-    const thumbnail = <Img fluid={node.thumb} backgroundColor={`black`}></Img>
-    const fullsize = <Img fluid={node.fullsize} backgroundColor={`black`}></Img>
+    const thumbnail = <Img fluid={node.thumb} backgroundColor={`black`} />
+    const fullsize = (
+      <ImgWithSpinner fluid={node.fullsize} backgroundColor={`black`} />
+    )
     return (
       <Box>
         <ImageModal thumbnail={thumbnail} fullsize={fullsize} />
