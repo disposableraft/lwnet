@@ -8,19 +8,29 @@ import {
 } from "@chakra-ui/core"
 
 export const Code = props => {
-  return <ChakraCode {...props} />
+  return <ChakraCode mb={4} mt={2} {...props} />
 }
 
 export const BlockQuote = props => {
-  return <Box as="blockquote" ml={6} {...props} />
+  return (
+    <Box
+      borderLeft="8px solid"
+      borderColor="gray.100"
+      pl={4}
+      as="blockquote"
+      ml={12}
+      mb={6}
+      {...props}
+    />
+  )
 }
 
 export const Text = props => {
-  return <ChakraText mb="3" {...props} />
+  return <ChakraText mb={3} {...props} />
 }
 
 export const Heading3 = props => {
-  return <ChakraHeading as="h3" size="lg" my="4" {...props} />
+  return <ChakraHeading as="h3" size="lg" my={4} {...props} />
 }
 
 export const Link = props => {

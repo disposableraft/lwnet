@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
@@ -17,8 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   if (result.errors) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
-    console.error("ERROR: Loading createPages query: ", result.errors)
+    console.error('🚨  ERROR: Loading "createPages" query', result.errors)
   }
 
   result.data.allMdx.edges.forEach(({ node }) => {
@@ -36,22 +36,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `Mdx`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    const slug = createFilePath({ node, getNode, basePath: `src/content` })
     createNodeField({
       node,
       name: `slug`,
       value: slug,
     })
   }
-}
-
-/**
- * Format a slug `{date}-{slug}`
- * @param {String} date
- * @param {String} slug
- * @returns string with a leading slug and words separated by dashes
- */
-function formatDateSlug(date, slug) {
-  const newSlug = slug.split("/").filter(e => e)
-  return [date].concat(newSlug).join("-")
 }

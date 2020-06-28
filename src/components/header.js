@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Box, Heading, Flex, Text } from "@chakra-ui/core"
 
-const MenuItems = ({ children }) => (
+const MenuItem = ({ children }) => (
   <Text mt={4} mr={6} display="block">
     {children}
   </Text>
@@ -52,12 +52,15 @@ const Header = props => {
         width="100%"
         alignItems="center"
       >
-        <MenuItems>
+        <MenuItem>
           <Link to="/about">About</Link>
-        </MenuItems>
-        <MenuItems>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/blog">Blog</Link>
+        </MenuItem>
+        <MenuItem>
           <Link to="/photos">Photos</Link>
-        </MenuItems>
+        </MenuItem>
       </Box>
     </Flex>
   )

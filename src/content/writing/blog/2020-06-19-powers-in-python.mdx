@@ -1,9 +1,7 @@
 ---
-
-title: Powers in Python
-
 date: 2020-06-19
-
+title: Powers in Python
+tags: python, self-help
 ---
 
 In Python the power operator can yield a surprising result if you expect it, as did I, to execute from left to right. The following expression evaluates to 🙀 `False`.
@@ -32,6 +30,9 @@ For the expected result, parenthesize the left value (or use the `pow()` functio
 ```python
 
 >>> (-2)**2 == 4
+True
+
+>>> math.pow(-2, 2) == 4
 True
 
 ```
