@@ -10,7 +10,7 @@ For most of the last year, I've written, studied and coded in offline mode. The 
 
 ### Browsers 
 
-I love websites, such as [Chakra UI](https://chakra-ui), that cache docs locally using local storage and service workers. I hope more documentation sites do this, particularly for tutorials.
+I love websites, such as [Chakra UI](https://chakra-ui.com/), that cache docs locally using local storage and service workers. I hope more documentation sites do this, particularly for tutorials.
 
 [Dev Docs](https://devdocs.io/) allows you to cache different sets of documentation. I use it for HTML, CSS, DOM, Enzyme, HTTP, Javascript, Jest, Markdown, Matplotlib, Node, Pandas, Python, React and TypeScript. 
 
