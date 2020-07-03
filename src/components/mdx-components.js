@@ -6,9 +6,32 @@ import {
   Link as ChakraLink,
   Text as ChakraText,
 } from "@chakra-ui/core"
+import Highlight, { defaultProps } from "prism-react-renderer"
+import theme from "prism-react-renderer/themes/nightOwl"
 
 export const Code = props => {
-  return <ChakraCode mb={4} mt={2} {...props} />
+  // mdx sends 'language-python', but prism expects just 'python'
+  const language = props.className && props.className.split("-")[1]
+  return (
+    <Highlight
+      {...defaultProps}
+      code={props.children}
+      language={language}
+      theme={theme}
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <ChakraCode className={className} style={style}>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </ChakraCode>
+      )}
+    </Highlight>
+  )
 }
 
 export const BlockQuote = props => {
