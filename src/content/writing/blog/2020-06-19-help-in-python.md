@@ -1,12 +1,12 @@
 ---
 title: "Getting Help in Python When Coding Offline"
 date: 2020-06-19
-tags: python, self-help
+tags: python, self-help, no-internet
 ---
 
-![No Internet]("../images/no-internet.png")
-
 For most of the last year, I've written, studied and coded in offline mode. The following are some of my offline sources of reference.
+
+![no internet](../../images/no-internet.png)
 
 ### Browsers 
 
