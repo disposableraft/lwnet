@@ -34,10 +34,15 @@ const ImgWithSpinner = props => {
 const Photos = props => {
   const data = props.data
 
-  const thumbnails = data.allImageSharp.nodes.map(node => {
-    const thumbnail = <Img fluid={node.thumb} backgroundColor={`black`} />
+  const thumbnails = data.allFile.edges.map(({ node }) => {
+    const thumbnail = (
+      <Img fluid={node.childImageSharp.thumb} backgroundColor={`black`} />
+    )
     const fullsize = (
-      <ImgWithSpinner fluid={node.fullsize} backgroundColor={`black`} />
+      <ImgWithSpinner
+        fluid={node.childImageSharp.fullsize}
+        backgroundColor={`black`}
+      />
     )
     return (
       <Box>
@@ -60,15 +65,21 @@ const Photos = props => {
 
 export const query = graphql`
   query {
-    allImageSharp(sort: { order: DESC, fields: fluid___originalName }) {
-      totalCount
-      nodes {
-        id
-        thumb: fluid(maxWidth: 240, maxHeight: 240, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid
-        }
-        fullsize: fluid(maxWidth: 960) {
-          ...GatsbyImageSharpFluid
+    allFile(
+      sort: { order: DESC, fields: childImageSharp___fluid___originalName }
+      filter: { sourceInstanceName: { eq: "photos" } }
+    ) {
+      edges {
+        node {
+          sourceInstanceName
+          childImageSharp {
+            thumb: fluid(maxWidth: 240, maxHeight: 240, cropFocus: ATTENTION) {
+              ...GatsbyImageSharpFluid
+            }
+            fullsize: fluid(maxWidth: 960) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
