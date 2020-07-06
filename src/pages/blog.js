@@ -7,12 +7,12 @@ import Tags from "../components/tags"
 
 const BlogPost = props => {
   return (
-    <Box>
-      <Heading as="h3" size="md">
+    <Box mb={8}>
+      <Heading as="h3" size="md" mb={4}>
         <Link to={props.fields.slug}>{props.frontmatter.title}</Link>
       </Heading>
-      <Text>{props.excerpt}</Text>
-      <Tags>{props.frontmatter.tags}</Tags>
+      <Text mb={2}>{props.excerpt}</Text>
+      <Tags mt={2}>{props.frontmatter.tags}</Tags>
     </Box>
   )
 }

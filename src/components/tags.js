@@ -1,11 +1,11 @@
 import React from "react"
 import { Tag } from "@chakra-ui/core"
 
-const Tags = ({ children }) => {
-  const tags = children.split(",")
+const Tags = props => {
+  const tags = props.children.split(",")
   return tags.map(tag => {
     return (
-      <Tag size="sm" mr={4} mb={6}>
+      <Tag size="sm" mr={2} {...props}>
         {tag}
       </Tag>
     )
