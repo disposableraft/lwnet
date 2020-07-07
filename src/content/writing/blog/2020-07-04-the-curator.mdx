@@ -20,7 +20,7 @@ One way to look at this is that, within the context window, words are equally re
 'To be or not to be that is the question'
 ```
 
-If we were to slide a context window across Shakespeare's ten famous words, they would be split into two groups of five words each:
+If we were to slide a context window across Shakespeare's ten famous words, they would be split into two groups of five words each<sup>2</sup>:
 
 ```python
 # group A
@@ -30,7 +30,7 @@ If we were to slide a context window across Shakespeare's ten famous words, they
 ['be', 'that', 'is', 'the', 'question']
 ```
 
-<Caption>(<em>Not exactly iambicpentameter!</em>)</Caption>
+<Caption>(Update: See footnote 2 for how this is an oversimplification of how the context window proceeds.)</Caption>
 
 Since the terms within a context window are equally related, rearranging the order of those terms is arbitrary. So the following two groups are equal to the previous two.
 
@@ -105,3 +105,18 @@ The big question is, for now, left unanswered. Whether or not, the model can des
 ## Footnote
 
 1. This is a great talk by [Rachel Thomas](https://www.youtube.com/watch?v=25nC0n9ERq4&t=1s), who explains word embeddings and also goes into the biases they can encode.
+
+2. Update: This is an extreme simplification of how the context window proceeds. It actually iterates across a sentence word by word.
+
+```
+WORD     -->       WINDOW
+----------------------------------
+to       --> ['be', 'or', 'not']
+be       --> ['to', 'or', 'not', 'that']
+or       --> ['to', 'be', 'not', 'that', 'is']
+not      --> ['to', 'be', 'or', 'that', 'is', 'the']
+that     --> ['be', 'or', 'not', 'is', 'the', 'question']
+is       --> ['or', 'not', 'that', 'the', 'question']
+the      --> ['not', 'that', 'is', 'question']
+question --> ['that', 'is', 'the']
+```
