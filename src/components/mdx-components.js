@@ -16,6 +16,7 @@ export const Code = props => {
   const codeStyle = {
     width: "100%",
     padding: "1rem 1rem 0",
+    overflow: "scroll",
   }
 
   return (
