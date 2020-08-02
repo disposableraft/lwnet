@@ -66,8 +66,8 @@ const Photos = props => {
 export const query = graphql`
   query {
     allFile(
-      sort: { order: DESC, fields: childImageSharp___fluid___originalName }
       filter: { sourceInstanceName: { eq: "photos" } }
+      sort: { order: DESC, fields: childImageSharp___fluid___originalName }
     ) {
       edges {
         node {

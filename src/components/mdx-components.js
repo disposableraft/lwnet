@@ -60,7 +60,7 @@ export const BlockQuote = props => {
 }
 
 export const Image = props => {
-  return <ChakraImage mt={4} {...props} />
+  return <ChakraImage pt={4} {...props} />
 }
 
 export const Text = props => {

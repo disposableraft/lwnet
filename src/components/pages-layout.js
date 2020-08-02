@@ -1,3 +1,5 @@
+import "katex/dist/katex.min.css"
+
 import React from "react"
 import { graphql } from "gatsby"
 import { Box, Heading } from "@chakra-ui/core"
@@ -19,7 +21,9 @@ export default function PageTemplate({ data: { mdx } }) {
       <SEO title={mdx.frontmatter.title} />
       <Box margin="auto" maxWidth="700px">
         {tags}
-        <Heading as="h2">{mdx.frontmatter.title}</Heading>
+        <Heading as="h2" pb={4}>
+          {mdx.frontmatter.title}
+        </Heading>
         <MDXProvider
           shortcodes={Caption}
           components={{
